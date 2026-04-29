@@ -1,0 +1,14 @@
+[project]
+name = "project-2-dang"
+version = "1.0.0"
+description = "当当网图书榜单爬虫系统 - 支持畅销榜/新书热卖榜的多维度数据采集与清洗"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "flask>=3.1.3",
+    "lxml>=6.1.0",
+    "pymysql>=1.1.2",
+    "requests>=2.33.1",
+    "sqlalchemy>=2.0.49",
+]

@@ -1,0 +1,23 @@
+[database]
+host = localhost
+port = 3306
+username = root
+password = 你的密码
+database = dangdang_data
+
+[spider]
+request_interval_min = 1.0
+request_interval_max = 3.0
+retry_count = 3
+timeout = 30
+use_proxy = false
+proxy_host =
+proxy_port = 0
+proxy_type = http
+proxy_username =
+proxy_password =
+
+[server]
+host = 127.0.0.1
+port = 5000
+debug = false
