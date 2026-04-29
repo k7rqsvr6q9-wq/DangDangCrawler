@@ -43,7 +43,7 @@
 
 ```bash
 git clone <项目仓库地址>
-cd Project_2_Dang
+cd DangDangCrawler
 ```
 
 1. **安装依赖**
