@@ -111,7 +111,7 @@ debug = false                 # 调试模式
 ## 项目结构
 
 ```
-Project_2_Dang/
+DangDangCrawler/
 ├── main.py                          # 程序入口
 ├── config.ini                       # 配置文件（数据库/爬虫/服务器）
 ├── pyproject.toml                   # 项目依赖定义
