@@ -1,6 +1,6 @@
-# Analysis - 当当网2025年畅销榜数据分析
+# Analysis - 当当网畅销榜数据分析
 
-独立于爬虫主项目的数据分析模块，基于当当网畅销榜Top500数据，提供6个维度的可视化分析。
+独立于爬虫主项目的数据分析模块，支持按批次筛选不同时间段数据，提供6个维度的可视化分析。
 
 ## 目录结构
 
@@ -9,13 +9,11 @@ analysis/
 ├── README.md                           # 本文件
 ├── visualization.ipynb                 # Jupyter Notebook 分析代码
 ├── 当当网2025年畅销榜深度分析报告.md   # 完整分析报告（图文并茂）
-└── charts/                             # 图表输出
-    ├── 01_分类势力范围.png
-    ├── 02_价格排名关系.png
-    ├── 03_价格评分热力图.png
-    ├── 04_标题词云.png
-    ├── 05_出版社实力雷达图.png
-    └── 06_排名分层对比.png
+└── charts/                             # 图表输出（按批次命名）
+    ├── YR_bs_2025_01_分类势力范围.png
+    ├── YR_bs_2025_02_价格排名关系.png
+    ├── ...
+    └── MO_bs_202601_01_分类势力范围.png
 ```
 
 ## 快速开始
@@ -46,6 +44,49 @@ uv run jupyter notebook visualization.ipynb
 uv run jupyter nbconvert --execute --to html visualization.ipynb
 ```
 
+## 批次筛选（V2.1.0 新增）
+
+数据库中存储了多个时间段的数据，通过 `batch_id` 字段区分。Notebook 启动后会自动列出所有可用批次：
+
+```
+可用批次列表:
+  YR_bs_2025           | 500条 | bestseller  | 排名1-500
+  MO_bs_202601         |  60条 | bestseller  | 排名1-60
+```
+
+### batch_id 编码规则
+
+| 格式 | 示例 | 含义 |
+|------|------|------|
+| `YR_bs_{年份}` | `YR_bs_2025` | 年度畅销榜 |
+| `MO_bs_{年月}` | `MO_bs_202601` | 月度畅销榜 |
+| `WK_bs_{年周}` | `WK_bs_202601` | 周度畅销榜 |
+| `YR_nw_{年份}` | `YR_nw_2025` | 年度新书热卖榜 |
+
+### 切换分析批次
+
+在 Notebook 的"批次选择"单元格中修改 `SELECTED_BATCH` 变量：
+
+```python
+# 分析2025年度畅销榜（默认）
+SELECTED_BATCH = 'YR_bs_2025'
+
+# 切换为2026年1月畅销榜
+SELECTED_BATCH = 'MO_bs_202601'
+```
+
+图表文件会自动按批次命名，互不覆盖：
+
+- `charts/YR_bs_2025_01_分类势力范围.png`
+- `charts/MO_bs_202601_01_分类势力范围.png`
+
+### 自适应分析
+
+Notebook 会根据数据量自动调整：
+- 排名分层：数据≤100条时分为3层，≤200条分为4层，>200条分为5层
+- 出版社筛选：最低上榜数 = max(3, 数据量/100)
+- 图表标题：自动显示当前批次的中文标签（如"2025年畅销榜"）
+
 ## 六个分析维度
 
 | # | 图表 | 类型 | 分析目标 |
@@ -62,7 +103,7 @@ uv run jupyter nbconvert --execute --to html visualization.ipynb
 | 步骤 | 内容 |
 |------|------|
 | 第一步 | 环境配置（字体、配色、库导入） |
-| 第二步 | 数据加载（从MySQL读取） |
+| 第二步 | 数据加载 + 批次列表展示 + 批次选择 |
 | 第三步 | Top10畅销书预览（格式化表格） |
 | 第四步 | 数据预处理（价格/评分/排名分层） |
 | 图1-6 | 六个可视化分析 |
@@ -94,19 +135,4 @@ Notebook 内置多策略中文字体查找：
 ```python
 import matplotlib.font_manager as fm
 fm.fontManager.addfont(r'C:\Windows\Fonts\msyh.ttc')
-```
-
-## 自定义分析
-
-修改 Notebook 中的以下参数即可自定义：
-
-```python
-# 配色方案
-C = ['#7EC8E3', '#98D8AA', ...]  # 马卡龙色系
-
-# 图表分辨率
-plt.rcParams['figure.dpi'] = 120  # 调高可获更清晰输出
-
-# 出版社筛选阈值
-if dat['count'] >= 5  # 修改最低上榜数量
 ```
