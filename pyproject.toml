@@ -1,7 +1,7 @@
 [project]
 name = "project-2-dang"
-version = "1.0.0"
-description = "当当网图书榜单爬虫系统 - 支持畅销榜/新书热卖榜的多维度数据采集与清洗"
+version = "2.0.0"
+description = "当当网图书榜单爬虫与数据分析系统 - 支持畅销榜/新书热卖榜的多维度数据采集、清洗与可视化分析"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
