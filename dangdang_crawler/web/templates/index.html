@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>当当网图书榜单爬虫与数据分析系统</title>
+    <title>当当网图书榜单爬虫系统</title>
     <style>
         :root{--bg:#f7f9fc;--bg-white:#fff;--bg-hover:#f0f5f4;--bg-active:#e8f5f0;--accent:#3bbfa0;--accent-light:#e8f5f0;--accent-hover:#2ea88b;--accent-shadow:rgba(59,191,160,.18);--danger:#ef5b5b;--danger-light:#fef0f0;--warning:#f0a030;--warning-light:#fef8ec;--success:#3bbfa0;--text-primary:#2c3e50;--text-secondary:#7f8c9b;--text-tertiary:#b0bec5;--border:#e8edf2;--shadow-sm:0 1px 3px rgba(0,0,0,.04);--shadow-md:0 4px 16px rgba(0,0,0,.06);--shadow-lg:0 8px 30px rgba(0,0,0,.08);--radius:12px;--radius-lg:16px;--radius-sm:8px;--transition:.25s cubic-bezier(.4,0,.2,1)}
         [data-theme="dark"]{--bg:#1a1a2e;--bg-white:#16213e;--bg-hover:#1a2744;--bg-active:#1a3a4a;--accent:#4fd1c5;--accent-light:#1a3a4a;--accent-hover:#38b2ac;--accent-shadow:rgba(79,209,197,.2);--danger:#fc8181;--danger-light:#2d1f1f;--warning:#f6ad55;--warning-light:#2d2510;--success:#4fd1c5;--text-primary:#e2e8f0;--text-secondary:#a0aec0;--text-tertiary:#718096;--border:#2d3748;--shadow-sm:0 1px 3px rgba(0,0,0,.2);--shadow-md:0 4px 16px rgba(0,0,0,.3);--shadow-lg:0 8px 30px rgba(0,0,0,.4)}
@@ -47,7 +47,7 @@
 </head>
 <body>
 <header class="header">
-    <div class="header-left"><div class="header-logo" onclick="toggleLogoMenu()">🤓<div class="header-logo-menu" id="logoMenu"><a href="https://chat.deepseek.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>DeepSeek AI</a></div></div><span class="header-title">当当网图书榜单爬虫与数据分析</span></div>
+    <div class="header-left"><div class="header-logo" onclick="toggleLogoMenu()">🤓<div class="header-logo-menu" id="logoMenu"><a href="https://chat.deepseek.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>DeepSeek AI</a></div></div><span class="header-title">当当网图书榜单爬虫</span></div>
     <div class="header-right"><div class="db-indicator" id="dbStatusHeader"><span class="db-dot fail"></span><span>数据库未连接</span></div><div class="header-status" id="headerStatus">就绪</div><button id="themeToggle" onclick="toggleTheme()" style="background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:16px;color:var(--text-secondary);transition:all var(--transition)" title="切换主题">🌙</button></div>
 </header>
 <div class="main">

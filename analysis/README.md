@@ -60,7 +60,6 @@ uv run jupyter nbconvert --execute --to html visualization.ipynb
 |------|------|------|
 | `YR_bs_{年份}` | `YR_bs_2025` | 年度畅销榜 |
 | `MO_bs_{年月}` | `MO_bs_202601` | 月度畅销榜 |
-| `WK_bs_{年周}` | `WK_bs_202601` | 周度畅销榜 |
 | `YR_nw_{年份}` | `YR_nw_2025` | 年度新书热卖榜 |
 
 ### 切换分析批次
