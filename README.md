@@ -79,8 +79,6 @@ password = 你的密码
 database = dangdang_data
 ```
 
-> ⚠️ 请勿将包含真实密码的config.ini提交到版本控制系统
-
 4. **启动应用**
 
 ```bash
