@@ -21,8 +21,8 @@ analysis/
 ### 1. 安装依赖
 
 ```bash
-# 在项目根目录执行
-uv pip install pandas numpy matplotlib seaborn squarify wordcloud jieba pymysql sqlalchemy
+# 在项目根目录执行（安装分析模块可选依赖）
+uv sync --extra analysis
 ```
 
 ### 2. 确保数据就绪
